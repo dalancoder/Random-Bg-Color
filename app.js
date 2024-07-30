@@ -13,34 +13,27 @@ function getRandomColor() {
   }
   return color;
 }
-console.log(getRandomColor());
+
+const randomColor = getRandomColor() 
+const fonkRandom = function () {
+  body.style.backgroundColor = getRandomColor();
+  colorText.textContent = getRandomColor();
+}
 
 // body.onload = function(){
 //     body.style.backgroundColor = getRandomColor();
 //  } //body.onload Kullanımı: Bu kullanım genellikle window.onload ile tercih edilir ve body öğesinin load olayını dinlerken sorunlar yaşanabilir. Bu nedenle DOMContentLoaded olayı daha güvenilir bir yöntemdir.
-document.addEventListener("DOMContentLoaded", function () {
-  body.style.backgroundColor = getRandomColor();
-  colorText.textContent = getRandomColor();
-}); //DOMContentLoaded Olayı: Bu olay, HTML içeriği tamamen yüklendiğinde tetiklenir ve arka plan rengini hemen rastgele bir renkle değiştirir. Bu sayede sayfa yüklenirken arka plan renginin aniden beyazdan rastgele renge değişmesi engellenir.
+document.addEventListener("DOMContentLoaded", fonkRandom); //DOMContentLoaded Olayı: Bu olay, HTML içeriği tamamen yüklendiğinde tetiklenir ve arka plan rengini hemen rastgele bir renkle değiştirir. Bu sayede sayfa yüklenirken arka plan renginin aniden beyazdan rastgele renge değişmesi engellenir.
 
-click.addEventListener("click", function () {
-  body.style.backgroundColor = getRandomColor();
-  colorText.textContent = getRandomColor();
-});
+click.addEventListener("click", fonkRandom);
 
-mouseOver.addEventListener("mouseover", function () {
-  body.style.backgroundColor = getRandomColor();
-  colorText.textContent = getRandomColor();
-});
+mouseOver.addEventListener("mouseover", fonkRandom);
 
-input.addEventListener("input", function () {
-  body.style.backgroundColor = input.value;
-  colorText.textContent = input.value;
-}); //input olayı, kullanıcı bir form elemanına veri girdiğinde, veriyi değiştirdiğinde veya seçtiğinde tetiklenir. Bu olay, veri değişikliği anında tetiklenir, yani kullanıcı her veri girişi yaptığında veya seçimde bulunduğunda çalışır.
+input.addEventListener("input", fonkRandom); //input olayı, kullanıcı bir form elemanına veri girdiğinde, veriyi değiştirdiğinde veya seçtiğinde tetiklenir. Bu olay, veri değişikliği anında tetiklenir, yani kullanıcı her veri girişi yaptığında veya seçimde bulunduğunda çalışır.
 
 body.addEventListener("keydown", (e) => {
   if (e.code === "Enter") {
-    body.style.backgroundColor = getRandomColor();
+    body.style.backgroundColor = randomColor;
   }
 });
 
